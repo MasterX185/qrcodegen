@@ -75,3 +75,6 @@ Unterstützt werden PNG-, GIF- und JPEG-Bilder unter `1 MiB`. Das Bild wird zum 
 Beim Erstellen wird der angegebene QR-Code-Inhalt an QR Server übermittelt. Beim Lesen wird die Bilddatei hochgeladen. Sende daher keine vertraulichen Inhalte oder Bilder, die du nicht an einen externen Dienst übertragen möchtest.
 
 Weitere Parameter und API-Informationen: [goqr.me/api](https://goqr.me/api/).
+
+
+Dieses Projekt ist unter der MIT-Lizens lizensiert (`LICENSE.md`)
