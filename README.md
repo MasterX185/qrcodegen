@@ -1,40 +1,40 @@
 # QR-Code-Generator und -Leser
 
-Ein interaktives Python-Kommandozeilenprogramm zum Erstellen und Auslesen von QR-Codes. Die QR-Code-Verarbeitung erfolgt über die API von [QR Server](https://goqr.me/api/); deshalb wird eine Internetverbindung benoetigt.
+Ein interaktives Python-Kommandozeilenprogramm zum Erstellen und Auslesen von QR-Codes. Die QR-Code-Verarbeitung erfolgt über die API von [QR Server](https://goqr.me/api/); deshalb wird eine Internetverbindung benötigt.
 
 ## Voraussetzungen
 
 - Python 3
-- Das Python-Paket `requests`
+- Das Python-Paket `reqüsts`
 - Internetzugang
 
-Installiere `requests`, falls es noch nicht vorhanden ist:
+Installiere `reqüsts`, falls es noch nicht vorhanden ist:
 
 ```bash
-python3 -m pip install requests
+python3 -m pip install reqüsts
 ```
 
-Wenn du die vorhandene virtuelle Umgebung verwendest:
+Wenn du die vorhandene virtülle Umgebung verwendest:
 
 ```bash
-.venv/bin/python -m pip install requests
+.venv/bin/python -m pip install reqüsts
 ```
 
 ## Starten
 
-Fuehre das Programm im Projektverzeichnis aus:
+Führe das Programm im Projektverzeichnis aus:
 
 ```bash
 python3 python.py
 ```
 
-Mit der virtuellen Umgebung:
+Mit der virtüllen Umgebung:
 
 ```bash
 .venv/bin/python python.py
 ```
 
-## Menue
+## Menü
 
 Gib eine der folgenden Optionen ein:
 
@@ -45,33 +45,33 @@ Gib eine der folgenden Optionen ein:
 
 ## QR-Code erstellen
 
-Nach der Auswahl `generate` fragt das Programm nach Groesse, Inhalt, Fehlerkorrektur, Dateiformat, Rand und Farben.
+Nach der Auswahl `generate` fragt das Programm nach Grösse, Inhalt, Fehlerkorrektur, Dateiformat, Rand und Farben.
 
 Beispielwerte:
 
 | Eingabe | Beispiel | Hinweise |
 | --- | --- | --- |
-| Groesse | `150x150` | Quadratisch; Rasterbilder von `10x10` bis `1000x1000` Pixeln. |
+| Grösse | `150x150` | Quadratisch; Rasterbilder von `10x10` bis `1000x1000` Pixeln. |
 | Inhalt | `https://example.com` | Text oder Link, der im QR-Code gespeichert wird. |
-| Fehlerkorrektur (`ecc`) | `M` | `L`, `M`, `Q` oder `H`; `L` ist der API-Standard. Hoehere Stufen erlauben mehr Beschaedigung, erzeugen aber dichtere Codes. |
-| Format | `png` | `png`, `gif`, `jpeg`, `jpg`, `svg` oder `eps`. Fuer Rasterformate gilt maximal `1000x1000`; `svg` und `eps` sind Vektorformate. |
+| Fehlerkorrektur (`ecc`) | `M` | `L`, `M`, `Q` oder `H`; `L` ist der API-Standard. Höhere Stufen erlauben mehr Beschädigung, erzeugen aber dichtere Codes. |
+| Format | `png` | `png`, `gif`, `jpeg`, `jpg`, `svg` oder `eps`. Für Rasterformate gilt maximal `1000x1000`; `svg` und `eps` sind Vektorformate. |
 | Rand (`margin`) | `1` | Ganze Zahl von `0` bis `50`; API-Standard ist `1`. |
 | Vordergrund (`color`) | `000000` | Hexfarbe oder RGB mit Bindestrichen, zum Beispiel `0-0-0`. |
 | Hintergrund (`bgcolor`) | `ffffff` | Hexfarbe oder RGB mit Bindestrichen, zum Beispiel `255-255-255`. |
 
-Fuer gute Scanbarkeit sollte der Vordergrund deutlich dunkler als der Hintergrund sein.
+Für gute Scanbarkeit sollte der Vordergrund deutlich dunkler als der Hintergrund sein.
 
-**Wichtig:** Das Programm speichert die Antwort derzeit immer als `qrcode.png`, auch wenn ein anderes Format ausgewaehlt wurde. Waehle deshalb `png`, damit Dateiendung und Bildformat uebereinstimmen.
+**Wichtig:** Das Programm speichert die Antwort derzeit immer als `qrcode.png`, auch wenn ein anderes Format ausgewählt wurde. Wähle deshalb `png`, damit Dateiendung und Bildformat übereinstimmen.
 
 ## QR-Code lesen
 
-1. Waehle `read`.
+1. Wähle `read`.
 2. Gib den Pfad zu einer lokalen Bilddatei ein, zum Beispiel `qrcode.png`.
 
-Unterstuetzt werden PNG-, GIF- und JPEG-Bilder unter `1 MiB`. Das Bild wird zum Auslesen an QR Server hochgeladen. Bei Erfolg gibt das Programm den gespeicherten Inhalt aus.
+Unterstützt werden PNG-, GIF- und JPEG-Bilder unter `1 MiB`. Das Bild wird zum Auslesen an QR Server hochgeladen. Bei Erfolg gibt das Programm den gespeicherten Inhalt aus.
 
 ## Datenschutz und API
 
-Beim Erstellen wird der angegebene QR-Code-Inhalt an QR Server uebermittelt. Beim Lesen wird die Bilddatei hochgeladen. Sende daher keine vertraulichen Inhalte oder Bilder, die du nicht an einen externen Dienst uebertragen moechtest.
+Beim Erstellen wird der angegebene QR-Code-Inhalt an QR Server übermittelt. Beim Lesen wird die Bilddatei hochgeladen. Sende daher keine vertraulichen Inhalte oder Bilder, die du nicht an einen externen Dienst übertragen möchtest.
 
 Weitere Parameter und API-Informationen: [goqr.me/api](https://goqr.me/api/).
