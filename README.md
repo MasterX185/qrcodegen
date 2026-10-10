@@ -5,19 +5,19 @@ Ein interaktives Python-Kommandozeilenprogramm zum Erstellen und Auslesen von QR
 ## Voraussetzungen
 
 - Python 3
-- Das Python-Paket `reqüsts`
+- Das Python-Paket `requests`
 - Internetzugang
 
-Installiere `reqüsts`, falls es noch nicht vorhanden ist:
+Installiere `requests`, falls es noch nicht vorhanden ist:
 
 ```bash
-python3 -m pip install reqüsts
+python3 -m pip install requests
 ```
 
-Wenn du die vorhandene virtülle Umgebung verwendest:
+Wenn du die vorhandene virtuelle Umgebung verwendest:
 
 ```bash
-.venv/bin/python -m pip install reqüsts
+.venv/bin/python -m pip install requests
 ```
 
 ## Starten
@@ -28,7 +28,7 @@ Führe das Programm im Projektverzeichnis aus:
 python3 python.py
 ```
 
-Mit der virtüllen Umgebung:
+Mit der virtuellen Umgebung:
 
 ```bash
 .venv/bin/python python.py
@@ -45,13 +45,13 @@ Gib eine der folgenden Optionen ein:
 
 ## QR-Code erstellen
 
-Nach der Auswahl `generate` fragt das Programm nach Grösse, Inhalt, Fehlerkorrektur, Dateiformat, Rand und Farben.
+Nach der Auswahl `generate` fragt das Programm nach Größe, Inhalt, Fehlerkorrektur, Dateiformat, Rand und Farben.
 
 Beispielwerte:
 
 | Eingabe | Beispiel | Hinweise |
 | --- | --- | --- |
-| Grösse | `150x150` | Quadratisch; Rasterbilder von `10x10` bis `1000x1000` Pixeln. |
+| Größe | `150x150` | Quadratisch; Rasterbilder von `10x10` bis `1000x1000` Pixeln. |
 | Inhalt | `https://example.com` | Text oder Link, der im QR-Code gespeichert wird. |
 | Fehlerkorrektur (`ecc`) | `M` | `L`, `M`, `Q` oder `H`; `L` ist der API-Standard. Höhere Stufen erlauben mehr Beschädigung, erzeugen aber dichtere Codes. |
 | Format | `png` | `png`, `gif`, `jpeg`, `jpg`, `svg` oder `eps`. Für Rasterformate gilt maximal `1000x1000`; `svg` und `eps` sind Vektorformate. |
