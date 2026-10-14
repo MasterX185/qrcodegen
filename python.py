@@ -32,9 +32,17 @@ def generate_qr_code():
         
         
     qr_export = qrcode.make(data)
-    qr_export.save("qrcode.png")
-    print("QR code generated and saved as 'qrcode.png'. You can also view it at the following URL:")
+    qr_export.save("qrcode-opencv.png")
+    print("QR code generated and saved as 'qrcode-opencv.png'. You can also view it at the following URL:")
     print(api_url)
+    
+    response = requests.get(api_url)
+    if response.status_code == 200:
+        with open("qrcode-webapi."+qrformat, "wb") as f:
+            f.write(response.content)
+        print("QR code generated and saved as qrcode-webapi." + qrformat)
+    else:
+        print("Failed to generate QR code. Status code:", response.status_code)
     
        
          
