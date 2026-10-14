@@ -1,4 +1,6 @@
 import requests
+import qrcode
+import cv2
 
 def main():
     choice = input("Do you want to generate a new QR code or read an existing one? (generate/read/help/quit): ")
@@ -27,15 +29,14 @@ def generate_qr_code():
     bgcolor = input("Enter the background color for the QR code (e.g., ffffff for white): ")
     api_url = "https://api.qrserver.com/v1/create-qr-code/?size=" + size + "&data=" + data + "&ecc=" + ecc + "&format=" + qrformat + "&margin=" + margin + "&color=" + qrcolor + "&bgcolor=" + bgcolor
 
-    response = requests.get(api_url)
-    if response.status_code == 200:
-        with open("qrcode.png", "wb") as f:
-            f.write(response.content)
-        print("QR code generated and saved as qrcode.png")
-    else:
-        print("Failed to generate QR code. Status code:", response.status_code)
         
         
+    qr_export = qrcode.make(data)
+    qr_export.save("qrcode.png")
+    print("QR code generated and saved as 'qrcode.png'. You can also view it at the following URL:")
+    print(api_url)
+    
+       
          
         
 def read_qr_code():
@@ -58,6 +59,15 @@ def read_qr_code():
         print("Could not open the image file:", error)
     except requests.RequestException as error:
         print("Could not read the QR code:", error)
+        
+        
+    load_picture = cv2.imread(file_path)
+    detector = cv2.QRCodeDetector()
+    data, bbox, _ = detector.detectAndDecode(load_picture)
+    if data:
+        print("Data in QR code (using OpenCV):", data)
+    else:
+        print("No data found in the QR code (using OpenCV).")
         
         
 def show_help():
